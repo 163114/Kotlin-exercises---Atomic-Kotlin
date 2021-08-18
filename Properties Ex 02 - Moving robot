@@ -1,0 +1,41 @@
+class Robot{
+    var x = 0
+    var y = 0
+    val fuckYouValError = 1
+
+    fun right(){
+        x = + fuckYouValError
+    }
+    fun down(){
+        y = + fuckYouValError
+    }
+    fun left(){
+        x = - fuckYouValError
+    }
+    fun up(){
+        y = - fuckYouValError
+        x = - fuckYouValError
+    }
+    fun getLocation():String{
+        return ("($x, $y)")
+    }
+}
+
+fun main(){
+    val whyShouldICallThisShit = Robot()
+    whyShouldICallThisShit.right()
+    whyShouldICallThisShit.right()
+    whyShouldICallThisShit.right()
+    whyShouldICallThisShit.left()
+    whyShouldICallThisShit.down()
+    whyShouldICallThisShit.down()
+    whyShouldICallThisShit.up()
+    println(whyShouldICallThisShit.getLocation())
+
+/** println(whyShouldICallThisShit.right())
+    println(whyShouldICallThisShit.down())
+    println(whyShouldICallThisShit.left())
+    println(whyShouldICallThisShit.up())
+    println(whyShouldICallThisShit.getLocation())
+**/
+}

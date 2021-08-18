@@ -1,0 +1,33 @@
+fun displayTriagle(numberOfRows: Int){
+    var trueRepeatCounter = 1
+    var timesToRepeat = 1
+    val character = "#"
+    val whiteSpaceChar = " "
+    var whiteSpaceTimes = numberOfRows - 1
+    while (trueRepeatCounter <= numberOfRows){
+        if (timesToRepeat % 2 != 0) {
+            println(whiteSpaceChar.repeat(whiteSpaceTimes) + character.repeat(timesToRepeat))
+            timesToRepeat++
+            trueRepeatCounter++
+            whiteSpaceTimes--
+        }
+        else if(timesToRepeat % 2 == 0){
+            timesToRepeat++
+        }
+    }
+}
+
+fun main(){
+    displayTriagle(20)
+}
+
+/**
+     #
+    ###
+   #####
+  #######
+ #########
+###########
+5 4 3 2 1
+1 3 5 7 9 11
+ */

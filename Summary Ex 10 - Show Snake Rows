@@ -1,0 +1,14 @@
+fun showSnake(rows: Int, columns: Int) {
+    val maxNumber = rows * columns - 1
+    for(i in 0..maxNumber){
+        if((i+1) % rows == 0){
+            println("%3d".format(i))
+        }
+        if((i+1) % rows != 0){
+            print("%3d".format(i))
+        }
+    }
+}
+fun main(){
+    showSnake(9, 6)
+}

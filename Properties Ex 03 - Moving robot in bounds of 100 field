@@ -1,0 +1,35 @@
+class Robot{
+    var x = 0
+    var y = 0
+
+    fun right(steps: Int){
+        if(steps > 99){
+            x = + (steps % 100)
+        }
+        else if(steps < 99) {
+            x = + steps
+        }
+    }
+    fun down(steps: Int){
+        if(steps > 99){
+            y = + (steps % 100)
+        }
+        else if(steps < 99){
+            y = + steps
+        }
+    }
+    fun left(steps: Int){
+        x = 100 - steps
+    }
+    fun up(steps: Int){
+        y = 100 - steps
+    }
+    fun getLocation():String = "($x, $y)"
+}
+
+fun main(){
+    val whyShouldICallThisShit = Robot()
+
+    whyShouldICallThisShit.up(1)
+    println(whyShouldICallThisShit.getLocation())
+}

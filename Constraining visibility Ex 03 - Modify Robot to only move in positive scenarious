@@ -1,0 +1,48 @@
+class Robot(var x: Int, var y: Int, val usedToGetRemainder: Int){
+    fun isPositiveOrNot(steps:Int):Boolean{
+        if (steps <= 0){
+            println("Steps argument must be positive, is $steps")
+            return true
+        }
+        return false
+    }
+
+    fun crossBondary(coordinate: Int): Int{
+        val inBounds = coordinate % usedToGetRemainder
+        return if(inBounds < 0){
+            usedToGetRemainder + inBounds
+        }   else {
+            inBounds
+        }
+    }
+
+    fun right(steps: Int){
+        if (isPositiveOrNot(steps)) return
+        x = + steps
+        x = crossBondary(x)
+    }
+
+    fun down(steps: Int){
+        if (isPositiveOrNot(steps)) return
+        y = + steps
+        y = crossBondary(y)
+    }
+    fun left(steps: Int){
+        if (isPositiveOrNot(steps)) return
+        x = - steps
+        x = crossBondary(x)
+    }
+    fun up(steps: Int){
+        if (isPositiveOrNot(steps)) return
+        y = - steps
+        y = crossBondary(y)
+    }
+    fun getLocation():String = "($x, $y)"
+}
+
+fun main(){
+    val whyShouldICallThisShit = Robot(0, 0 , 100)
+
+    whyShouldICallThisShit.left(11)
+    println(whyShouldICallThisShit.getLocation())
+}

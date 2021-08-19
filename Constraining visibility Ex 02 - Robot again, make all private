@@ -1,0 +1,50 @@
+class Robot(private var x: Int, private var y: Int, private val usedToGetRemainder: Int){
+
+    private fun crossBondary(coordinate: Int): Int{
+        val inBounds = coordinate % usedToGetRemainder
+        return if(inBounds < 0){
+            usedToGetRemainder + inBounds
+        }   else {
+            inBounds
+        }
+    }
+
+    private fun right(steps: Int){
+        x = + steps
+        x = crossBondary(x)
+    }
+
+    private fun down(steps: Int){
+        y = + steps
+        y = crossBondary(y)
+    }
+    private fun left(steps: Int){
+        x = - steps
+        x = crossBondary(x)
+    }
+    private fun up(steps: Int){
+        y = - steps
+        y = crossBondary(y)
+    }
+    private fun getLocation():String = "($x, $y)"
+}
+
+fun main(){
+    val whyShouldICallThisShit = Robot(0, 0 , 100)
+
+    whyShouldICallThisShit.left(10)
+    println(whyShouldICallThisShit.getLocation())
+
+    whyShouldICallThisShit.right(2)
+    println(whyShouldICallThisShit.getLocation())
+
+    whyShouldICallThisShit.up(5)
+    println(whyShouldICallThisShit.getLocation())
+
+    whyShouldICallThisShit.down(5)
+    println(whyShouldICallThisShit.getLocation())
+
+    whyShouldICallThisShit.x(1)
+    whyShouldICallThisShit.y(1)
+    whyShouldICallThisShit.usedToGetRemainder(1)
+}

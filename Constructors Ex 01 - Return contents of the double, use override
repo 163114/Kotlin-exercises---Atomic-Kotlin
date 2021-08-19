@@ -1,0 +1,9 @@
+class Floating(val d: Double){
+    override fun toString(): String{
+        return "$d"
+    }
+}
+fun main(){
+    val floating = Floating(2.9)
+    println(floating)
+}

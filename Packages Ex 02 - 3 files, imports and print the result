@@ -1,0 +1,30 @@
+aaa.kt: 
+
+val x = 10
+
+fun fa(argumentToTake: Int): Int = argumentToTake * x
+
+class K{
+    override fun toString(): String {
+        return "K"
+    }
+}
+
+bbb.kt:
+
+import fa
+import x
+import K
+
+fun g(i: Int):String = "${K()} ${fa(i)}"
+
+ccc.kt: 
+
+import fa
+import x
+import K
+import g
+
+fun main() {
+    println(g(1))
+}

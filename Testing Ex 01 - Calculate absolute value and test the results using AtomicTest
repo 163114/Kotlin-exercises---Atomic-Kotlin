@@ -1,0 +1,15 @@
+import atomictest.eq
+
+var newNumber = 0
+
+fun abs(number: Int):Int{
+    if(number >= 0) newNumber = number
+    else if(number < 0) newNumber = number * -1
+    return newNumber
+}
+
+fun main(){
+    abs(0) eq 0
+    abs(42) eq 42
+    abs(-239) eq 239
+}

@@ -1,5 +1,7 @@
 aaa.kt: 
 
+package aaa
+
 val x = 10
 
 fun fa(argumentToTake: Int): Int = argumentToTake * x
@@ -12,18 +14,17 @@ class K{
 
 bbb.kt:
 
-import fa
-import x
-import K
+package bbb
+
+import aaa.*
 
 fun g(i: Int):String = "${K()} ${fa(i)}"
 
 ccc.kt: 
 
-import fa
-import x
-import K
-import g
+package ccc
+
+import bbb.*
 
 fun main() {
     println(g(1))

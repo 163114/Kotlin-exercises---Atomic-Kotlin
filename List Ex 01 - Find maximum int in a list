@@ -1,0 +1,21 @@
+var n = 0
+var z = 1
+var newList = mutableListOf<Int>()
+
+fun findMax(listToTake: IntList){
+    if (listToTake.isNullOrEmpty()){
+        return 0
+    }
+    else{
+        for (i in intList){
+            if(i[n] > i[z]..i[listToTake.lenght()]){
+                println(i)
+            }
+            else i++ continue
+        }
+    }
+}
+
+fun main(){
+    findMax(1, 2, 3, 4, 5)
+}

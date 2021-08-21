@@ -1,0 +1,13 @@
+fun repeatChar(charToBeRepeated: Char, numberOfTimesToRepeat: Int) {
+    if (numberOfTimesToRepeat > 0){
+        repeat(numberOfTimesToRepeat){
+            print(charToBeRepeated)
+        } }
+    if (numberOfTimesToRepeat < 0){
+        throw Exception("N is negative. Must be positive. N was $numberOfTimesToRepeat")
+    }
+}
+
+fun main(){
+    repeatChar('s', -5)
+}

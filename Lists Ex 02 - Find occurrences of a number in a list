@@ -1,0 +1,30 @@
+import listsExercise2.*
+
+val list = IntList(listOf<Int>(1, 2, 3, 4, 5, 1, 1))
+var number = 0
+
+fun countHowManyTimes(list: IntList, numberToFind: Int): Int{
+    for(i in list){
+        if(numberToFind == i) number++
+    }
+    return number
+}
+
+fun main(){
+    println(countHowManyTimes(list, 1))
+}
+
+// listsExercise2 contents: 
+
+package listsExercise2
+
+class IntList(private val list: List<Int>) : Iterable<Int> {
+
+    override fun iterator(): Iterator<Int> = list.iterator()
+
+    operator fun get(index: Int): Int = list[index]
+
+    override fun toString() = list.toString()
+
+    fun size() = list.size
+}

@@ -1,0 +1,12 @@
+import atomictest.*
+
+fun sum(a: Int, b: Int, c: Int):Int = a + b + c
+
+fun main(){
+    sum(1, 2, 3) eq 6
+    sum(1, 2, 7) eq 8
+    sum(1, 8, 3) neq 12
+    sum(1, 20, 3) eq 54
+    sum(1, 2, 3) neq 6
+    sum(1, 2, 5) eq 6
+}

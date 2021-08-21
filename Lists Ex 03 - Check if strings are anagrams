@@ -1,0 +1,13 @@
+fun checkIfAnagrams(firstString: String, secondString: String){
+    val newFirstList = firstString.toList().sorted()
+    val newSecondList = secondString.toList().sorted()
+    if (newFirstList == newSecondList){
+        println("The strings are anagrams")
+    }
+    else {
+        println("Strings aren't anagrams")
+    }
+}
+fun main(){
+    checkIfAnagrams("mom", "omm")
+}

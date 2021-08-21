@@ -1,0 +1,11 @@
+import atomictest.*
+
+fun abort(stringToTake: String){
+    throw Exception(stringToTake)
+}
+
+fun main() {
+    capture {
+        abort("Stop!")
+    } eq "Exception: Stop!"
+}

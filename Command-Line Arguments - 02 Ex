@@ -1,0 +1,8 @@
+fun printArgs(firstParameter: String, vararg vararg: Int){
+    val secondParameter = vararg.toList()
+    println("[$firstParameter], [$secondParameter]")
+}
+
+fun main(){
+    printArgs("boop", 1, 2, 3, 4, 5)
+}

@@ -1,0 +1,9 @@
+fun areAnagrams(firstStringToCheck: String, secondStringToCheck: String): Boolean {
+    if (firstStringToCheck.toList().sorted() == secondStringToCheck.toList().sorted()) return true
+    else return false
+}
+fun main() {
+    val firstString = "first"
+    val secondString = "irstf"
+    println(areAnagrams(firstString, secondString))
+}

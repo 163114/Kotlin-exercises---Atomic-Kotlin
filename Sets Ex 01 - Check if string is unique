@@ -1,0 +1,7 @@
+fun checkIfAllUnique(stringToCheck: String):Boolean {
+    var stringConvertedToSet = stringToCheck.toSet()
+    return(stringConvertedToSet.size == stringToCheck.length)
+}
+fun main(){
+    println(checkIfAllUnique("Allow"))
+}

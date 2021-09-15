@@ -1,0 +1,13 @@
+fun countTheNumberOfTimes(listToCheck: List<Int>, givenElement: Int): Int{
+    var times = 0
+    for(number in listToCheck){
+        if (number == givenElement) {
+            times += 1
+        }
+        }
+    return times }
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5, 6, 33, 55, 0, 1, 2)
+    println(countTheNumberOfTimes(numbers, 1))
+}

@@ -1,0 +1,9 @@
+fun areAnagrams(firstListToCheck: List<Int>, secondListToCheck: List<Int>): Boolean {
+    if (firstListToCheck.sorted() == secondListToCheck.sorted()) return true
+    else return false
+}
+fun main() {
+    val firstList = listOf<Int>(1, 2, 3, 4, 5)
+    val secondList = listOf<Int>(1, 3, 2, 5, 4)
+    println(areAnagrams(firstList, secondList))
+}

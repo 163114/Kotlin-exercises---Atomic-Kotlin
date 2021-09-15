@@ -1,0 +1,16 @@
+fun findMax(listToCheck: List<Int> = emptyList()): Int{
+// Prints maximum number in the list. If list is empty
+// Which it is by default, then zero is returned
+    var max = 0
+    for(i in listToCheck){
+        if(i > max){
+            max = i
+        }
+    }
+    return max
+}
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5, 6, 33, 55, 0, 1, 2)
+    println(findMax(numbers))
+}

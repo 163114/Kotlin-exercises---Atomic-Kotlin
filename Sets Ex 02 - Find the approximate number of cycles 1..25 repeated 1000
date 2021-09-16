@@ -1,0 +1,32 @@
+fun removeIntsFromSet(ints: MutableSet<Int>){ // this function lets me remove all elements from the list so I could fill it in the next cycle
+    ints.removeIf{it % 1 == 0}
+}
+
+fun experiment(numberOfTimesToRepeatTheExperiment: Int): Int{
+    var placeToStart = 0
+    val setToFill = mutableSetOf<Int>()
+    var cycleCount = 0
+    val cycleCountSet = mutableSetOf<Int>()
+
+    var fortesting = 0 // i need to see the result in debugging
+    //var resultingListForTheMinimum = listOf<Int>() used to display the minimum number of cycles
+    while(placeToStart < numberOfTimesToRepeatTheExperiment){
+        while(setToFill.size < 25) {
+            val randomNumber = (1..25).random()
+            setToFill += randomNumber
+            cycleCount++
+        }
+        cycleCountSet += cycleCount
+        placeToStart++
+        cycleCount = 0
+        removeIntsFromSet(setToFill)
+    }
+    // here we are going to take the set cycleCountSet and find the average value of cycles that are needed to fill set randomly with number 1..25
+    fortesting = cycleCountSet.average().toInt()
+    return fortesting
+    // resultingListForTheMinimum = cicleCountSet.toList().sorted() used to display the minimum number of cycles
+    // return resultingListForTheMinimum[0] used to display the minimum number of cycles
+}
+fun main(){
+    println(experiment(1000))
+}

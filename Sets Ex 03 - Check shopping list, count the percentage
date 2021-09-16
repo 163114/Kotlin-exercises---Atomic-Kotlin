@@ -1,0 +1,45 @@
+fun calculatePercentage(myGroceryList: Set<String>):String{
+    val hundredPercent = myGroceryList.size
+    var countMeatPercentage: Float = 0.0F
+    var countFruitsPercentage: Float = 0.0F
+    var countVegePercentage: Float = 0.0F
+    var countOtherPercentage: Float = 0.0F
+
+
+    val meats = setOf("beef", "chicken")
+    val fruits = setOf("apple", "orange", "banana", "kiwi")
+    val vegetables = setOf("beans", "peas", "carrots", "sweet potatoes", "asparagus", "spinach")
+
+    for (i in myGroceryList){
+        if (i in meats) countMeatPercentage++
+        if (i in fruits) countFruitsPercentage++
+        if (i in vegetables) countVegePercentage++
+        if (i !in meats)
+        {
+            if(i !in fruits)
+            {
+                if(i !in vegetables) countOtherPercentage++
+            }
+            }
+    }
+    if(countMeatPercentage == 0.0F) countMeatPercentage = 0.0F
+    else countMeatPercentage = (countMeatPercentage/hundredPercent) * 100
+
+    if(countFruitsPercentage == 0.0F) countFruitsPercentage = 0.0F
+    else countFruitsPercentage = (countFruitsPercentage / hundredPercent) * 100
+
+    if(countVegePercentage == 0.0F) countVegePercentage = 0.0F
+    else countVegePercentage = (countVegePercentage/hundredPercent) * 100
+
+    if(countOtherPercentage == 0.0F) countOtherPercentage = 0.0F
+    else countOtherPercentage = (countOtherPercentage/hundredPercent) * 100
+
+    return """Out of the shopping list there is $countMeatPercentage% meat, 
+        |$countFruitsPercentage% fruits, $countVegePercentage% vegetables and 
+        |$countOtherPercentage% other products.""".trimMargin()
+}
+
+fun main(){
+    val groceryList = setOf<String>("peanuts", "grapes", "water", "beans", "sweet potatoes", "orange")
+    println(calculatePercentage(groceryList))
+}

@@ -1,0 +1,27 @@
+ class Contact(val name: String, val number: String) {
+    override fun toString(): String {
+        return "Contact('$name', '$number')"
+    }
+}
+
+// In the function below we take the string in format "Contact('$name', '$number')", which was created by the class Contact
+fun buildNumberToContactMap(contactList: List<Contact>): Map<String, Contact> {
+    // Here we create an empty map to pass the values to 
+    val map = mutableMapOf<String, Contact>()
+    // In for loop we iterate over the contactList and as a result of each iteration we add each element to the map and return it. 
+    for (contact in contactList) {
+        map[contact.number] = contact
+    }
+    return map
+}
+
+fun main(){
+    // Here we create a value which is assigned to a list. List has name a number. Each value is a list is using class Contact 
+    // To return the formatted string of a structure "Contact('$name', '$number')"
+    val contactList = listOf(Contact("Miffy", "1-234-567890"), Contact("Cleo", "098-765-4321"))
+    // We create value, which is assigned to function and passes to this function the list, which we created line above. 
+    val contactsByNumber = buildNumberToContactMap(contactList)
+    println(contactsByNumber)
+    println("{1-234-567890=Contact('Miffy', '1-234-567890'), " +
+            "098-765-4321=Contact('Cleo', '098-765-4321')}")
+}

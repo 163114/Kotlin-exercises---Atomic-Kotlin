@@ -1,0 +1,17 @@
+import atomictest.*
+
+class Boring(){
+    fun a(): Double = 1.618
+    fun b(): String = "ratio"
+    fun c(): Int = 11
+}
+
+fun main(){
+    val d = Boring()
+    println(d.a())
+    println(d.b())
+    println(d.c())
+    d.a() eq 1.618
+    d.b() eq "ratio"
+    d.c() eq 11
+}

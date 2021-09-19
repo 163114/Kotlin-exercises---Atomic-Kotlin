@@ -1,0 +1,25 @@
+
+class FixedHolder(vararg any: Int){
+    var full: Boolean = false
+    val maximumSize: Int = 6
+    val list: MutableList<Int> = any.toMutableList()
+
+    fun add(number: Int){
+        val size: Int = list.size
+        if (size < maximumSize){
+            list.add(number)
+            println(list)
+        }
+        if (size >= maximumSize) {
+            full = true
+            throw IllegalStateException("The array is full. No numbers can be added.")
+        }
+    }
+}
+
+fun main(){
+    val addAny = FixedHolder(1, 2, 3, 4, 5)
+    addAny.add(6)
+    addAny.add(7)
+    addAny.add(8)
+}

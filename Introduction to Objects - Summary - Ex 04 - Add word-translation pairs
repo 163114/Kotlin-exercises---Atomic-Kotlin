@@ -1,0 +1,16 @@
+class Dictionary{
+    val mapOfWords = mutableMapOf<String, List<String>>()
+    fun addTranslations(word: String, translations: String): MutableMap<String, List<String>>{
+        if(mapOfWords.containsKey(word)) throw IllegalArgumentException("Dictionary already has translations for '$word'.")
+        else {mapOfWords += word to translations.split(", ")}
+        return mapOfWords
+    }
+}
+
+fun main(){
+    val runDict = Dictionary()
+    println(runDict.addTranslations("Overcome", "Превозмочь, перебороть, преодолеть"))
+    println(runDict.addTranslations("Add", "Добавить, прибавить, сложить"))
+    println(runDict.addTranslations("Plus", "Плюс, что-либо дополнительно"))
+    println(runDict.addTranslations("Overcome", "Превозмочь, перебороть, преодолеть"))
+}

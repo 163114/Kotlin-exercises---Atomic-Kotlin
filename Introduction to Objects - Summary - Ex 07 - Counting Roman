@@ -1,0 +1,95 @@
+fun naturalNumberToRoman(number: Int): String{
+    val romanNumbers = mapOf<Int, String>(1000 to "M", 900 to "CM", 500 to "D", 400 to "CD",
+        100 to "C", 90 to "XC", 50 to "L", 40 to "XL", 10 to "X", 9 to "IX", 5 to "V", 4 to "IV", 1 to "I")
+    var remainder: Int = number
+    var result: String = ""
+    var middleResult:Int = 0
+    // For each step of conversion, the initial number should be == remainder + result.
+    // Conversion should be done in steps
+    while(remainder > 0){
+        if(number / 1000 > 0){
+            middleResult = number / 1000
+            result += romanNumbers.get(1000)?.repeat(middleResult)
+            remainder -= 1000 * middleResult
+        }
+        if(remainder / 900 > 0){
+            middleResult = remainder / 900
+            result += romanNumbers.get(900)?.repeat(middleResult)
+            remainder -= 900 * middleResult
+        }
+        if(remainder / 500 > 0){
+            middleResult = remainder / 500
+            result += romanNumbers.get(500)?.repeat(middleResult)
+            remainder -= 500 * middleResult
+        }
+        if(remainder / 400 > 0){
+            middleResult = remainder / 400
+            result += romanNumbers.get(400)?.repeat(middleResult)
+            remainder -= 400 * middleResult
+        }
+        if(remainder / 100 > 0){
+            middleResult = remainder / 100
+            result += romanNumbers.get(100)?.repeat(middleResult)
+            remainder -= 100 * middleResult
+        }
+        if(remainder / 90 > 0){
+            middleResult = remainder / 90
+            result += romanNumbers.get(90)?.repeat(middleResult)
+            remainder -= 90 * middleResult
+        }
+        if(remainder / 50 > 0){
+            middleResult = remainder / 50
+            result += romanNumbers.get(50)?.repeat(middleResult)
+            remainder -= 50 * middleResult
+        }
+        if(remainder / 40 > 0){
+            middleResult = remainder / 40
+            result += romanNumbers.get(40)?.repeat(middleResult)
+            remainder -= 40 * middleResult
+        }
+        if(remainder / 10 > 0){
+            middleResult = remainder / 10
+            result += romanNumbers.get(10)?.repeat(middleResult)
+            remainder -= 10 * middleResult
+        }
+        if(remainder / 9 > 0){
+            middleResult = remainder / 9
+            result += romanNumbers.get(9)?.repeat(middleResult)
+            remainder -= 9 * middleResult
+        }
+        if(remainder / 5 > 0){
+            middleResult = remainder / 5
+            result += romanNumbers.get(5)?.repeat(middleResult)
+            remainder -= 5 * middleResult
+        }
+        if(remainder / 4 > 0){
+            middleResult = remainder / 4
+            result += romanNumbers.get(4)?.repeat(middleResult)
+            remainder -= 4 * middleResult
+        }
+        if(remainder / 1 > 0){
+            middleResult = remainder / 1
+            result += romanNumbers.get(1)?.repeat(middleResult)
+            remainder -= 1 * middleResult
+        }
+
+//        for((naturalNumber, romanNumber) in romanNumbers)
+//            middleResult = number / naturalNumber
+//              if(middleResult > 0)
+//              result = result + romanNumber
+    }
+    return result
+}
+
+fun main(){
+    println(naturalNumberToRoman(44))
+    println(naturalNumberToRoman(23))
+    println(naturalNumberToRoman(100))
+    println(naturalNumberToRoman(2018))
+    println(naturalNumberToRoman(7))
+    println(naturalNumberToRoman(39))
+    println(naturalNumberToRoman(683))
+    println(naturalNumberToRoman(1999))
+    println(naturalNumberToRoman(494))
+    println(naturalNumberToRoman(1555))
+}

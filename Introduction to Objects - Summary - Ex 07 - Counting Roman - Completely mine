@@ -1,0 +1,26 @@
+fun naturalNumberToRoman(number: Int): String{
+    val mapNaturalToRoman = mapOf<Int, String>(1000 to "M", 900 to "CM", 500 to "D", 400 to "CD", 100 to "C", 90 to "XC",
+        50 to "L", 40 to "XL", 10 to "X", 9 to "IX", 5 to "V", 4 to "IV", 1 to "I")
+    var finalRomanString: String = ""
+    var remainder: Int = number
+
+    for((naturalNumber, romanLetter) in mapNaturalToRoman){
+        finalRomanString += romanLetter.repeat(remainder / naturalNumber)
+        remainder -= naturalNumber * (remainder / naturalNumber)
+        }
+    return finalRomanString
+}
+
+fun main(){
+    println(naturalNumberToRoman(2500))
+    println(naturalNumberToRoman(44))
+    println(naturalNumberToRoman(23))
+    println(naturalNumberToRoman(100))
+    println(naturalNumberToRoman(2018))
+    println(naturalNumberToRoman(7))
+    println(naturalNumberToRoman(39))
+    println(naturalNumberToRoman(683))
+    println(naturalNumberToRoman(1999))
+    println(naturalNumberToRoman(494))
+    println(naturalNumberToRoman(1555))
+}

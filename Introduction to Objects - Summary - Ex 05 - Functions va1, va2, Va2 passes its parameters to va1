@@ -1,0 +1,13 @@
+fun va1(numbers: List<Int>){
+    println("va1:")
+    for(i in numbers)
+        println(i)
+}
+fun va2(numbers: List<Int>){
+    println("va2:")
+    va1(numbers)
+}
+fun main(){
+    va1(listOf(1, 2, 3))
+    va2(listOf(1, 2, 3))
+}

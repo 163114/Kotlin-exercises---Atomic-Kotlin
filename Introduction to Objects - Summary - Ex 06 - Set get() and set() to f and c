@@ -1,0 +1,34 @@
+class Temperature() {
+    private var scale: String = "f"
+    private var current: Double = 0.0
+
+    var fahrenheit: Double
+        set(now) {
+            current = now
+            scale = "f"
+        }
+        get(): Double =
+            if (scale == "f")
+                current
+            else
+                current * 9.0 / 5.0 + 32.0
+    var celsius: Double
+        set(now) {
+            current = now
+            scale = "c"
+        }
+        get(): Double =
+            if (scale == "c")
+                current
+            else
+                (current - 32.0) * 5.0 / 9.0
+}
+
+fun main(){
+    val temp = Temperature()
+    temp.fahrenheit = 98.6
+    println(temp.fahrenheit == 98.6)
+    println(temp.celsius == 37.0)
+    temp.celsius = 100.0
+    println(temp.fahrenheit == 212.0)
+}

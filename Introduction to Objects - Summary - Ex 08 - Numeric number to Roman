@@ -1,0 +1,30 @@
+fun romanConvertToNum(romanNumber: String): Int{
+    val romanNumbers = mapOf<Int, String>(1000 to "M", 900 to "CM", 500 to "D", 400 to "CD",
+        100 to "C", 90 to "XC", 50 to "L", 40 to "XL", 10 to "X", 9 to "IX", 5 to "V", 4 to "IV", 1 to "I")
+    val reversedRomanNumbers = romanNumbers.entries.associate { (key, value) -> value to key }
+    val reversedRomanToIterateOver: String = romanNumber.reversed()
+    var finalNumericNumber = 0
+    var maximum = 0
+    for(letter in reversedRomanToIterateOver) {
+        if(reversedRomanNumbers.getValue("$letter") >= maximum){
+            finalNumericNumber += reversedRomanNumbers.get("$letter")!!
+            maximum = reversedRomanNumbers.getValue("$letter")
+        } else {
+            finalNumericNumber -= reversedRomanNumbers.getValue("$letter")
+        }
+    }
+    return finalNumericNumber
+}
+
+fun main(){
+    println(romanConvertToNum("IX") == 9)
+    println(romanConvertToNum("XXIII") == 23)
+    println(romanConvertToNum("XLIV") == 44)
+    println(romanConvertToNum("C") == 100)
+    println(romanConvertToNum("MMXVIII") == 2018)
+    println(romanConvertToNum("VII") == 7)
+    println(romanConvertToNum("XXXIX") == 39)
+    println(romanConvertToNum("DCLXXXIII") == 683)
+    println(romanConvertToNum("MCMXCIX") == 1999)
+    println(romanConvertToNum("CDXCIV") == 494)
+    println(romanConvertToNum("MDLV") == 1555)}

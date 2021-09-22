@@ -1,0 +1,15 @@
+class Rectangle(){
+
+}
+
+fun Rectangle.coversZero(firstNum: Int, secondNum: Int): Boolean {
+    return firstNum == 0 && secondNum == 0
+}
+
+fun main(){
+    val instanceOfRectangle = Rectangle()
+    println(instanceOfRectangle.coversZero(1, 1))
+    println(instanceOfRectangle.coversZero(0, 1))
+    println(instanceOfRectangle.coversZero(1, 0))
+    println(instanceOfRectangle.coversZero(0, 0))
+}

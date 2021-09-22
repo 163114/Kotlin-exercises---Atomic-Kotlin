@@ -1,0 +1,19 @@
+class SimpleTime(
+    val hours: Int = 0,
+    val minutes: Int = 0,
+    val seconds: Int = 0,
+    val nanoseconds: Int = 0
+){
+    fun toSecondOfDay(): Double{
+        val finalSum: Double = (hours * 60 * 60) + (minutes * 60) + seconds + (nanoseconds * 0.000_000_000_1) //1e-9 to count nano to sec
+        return finalSum
+    }
+    fun toNanoOfDay(): Double{
+        val finalSum: Double = (hours * 3.6e+12) + (minutes * 6e+10) + (seconds * 1e+9) + nanoseconds
+        return finalSum
+    }
+}
+fun main(){
+    println(SimpleTime(1, 1, 1, 1).toSecondOfDay())
+    println(SimpleTime(1, 1, 1, 1).toNanoOfDay())
+}

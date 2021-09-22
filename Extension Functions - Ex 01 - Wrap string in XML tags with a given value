@@ -1,0 +1,7 @@
+fun String.xmlTag(tag: String): String {
+    return "<tag>$this</tag>"
+}
+
+fun main(){
+    println("Hello, world!".xmlTag("Type of begginer code"))
+}

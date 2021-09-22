@@ -1,0 +1,19 @@
+class Rectangle(
+    var side1: Double = 1.0,
+    var side2: Double = 2.0,
+    var color: String = "yellow"
+){
+    override fun toString(): String {
+        return "$color Rectangle $side1 x $side2"
+    }
+}
+
+fun main(){
+    println(Rectangle())
+    println(Rectangle(2.0))
+    println(Rectangle(2.0, 3.0, "blue"))
+    println(Rectangle(side1 = 2.0, side2 = 3.0))
+    println(Rectangle(color = "blue", side2 = 4.0, side1 = 2.0))
+    println(Rectangle(side2 = 4.0, side1 = 2.0))
+    println(Rectangle(side1 = 2.0))
+}

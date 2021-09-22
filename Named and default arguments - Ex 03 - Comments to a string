@@ -1,0 +1,9 @@
+fun joinComments(stringToTake: String): String {
+    return stringToTake.lines().joinToString(separator = ";")
+}
+fun main(){
+    println(joinComments("""//first line
+        //second line
+        //third line
+    """.trimMargin("//")))
+}

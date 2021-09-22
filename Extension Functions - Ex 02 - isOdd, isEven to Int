@@ -1,0 +1,18 @@
+fun Int.isOdd(): Boolean {
+    return this % 2 != 0
+}
+
+fun Int.isEven(): Boolean {
+    return this % 2 == 0
+}
+
+fun main(){
+    println(2.isOdd())
+    println(1.isOdd())
+    println(14.isOdd())
+    println(2.isEven())
+    println(1.isEven())
+    println(13.isEven())
+    println(12897.isEven())
+    println(12897.isOdd())
+}

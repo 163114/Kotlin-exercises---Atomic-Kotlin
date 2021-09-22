@@ -1,0 +1,27 @@
+import java.beans.beancontext.BeanContext
+
+class Rectangle(
+    val x: Int,
+    val y: Int,
+    val wight: Int,
+    val height: Int
+){
+    override fun toString(): String {
+        return "x = $x, y = $y, wight = $wight, height = $height"
+    }
+}
+
+fun Rectangle.coversZero():Boolean{
+    return 0 in x..(x + wight) && 0 in y..(y + height)
+}
+
+fun main(){
+    val testTriangleOutput = Rectangle(1, 1, 2 ,2)
+    println(testTriangleOutput)
+    println(testTriangleOutput.coversZero())
+
+    val testTriangleOutputSecond = Rectangle(-1, -1, 2 ,2)
+    println(testTriangleOutputSecond)
+    println(testTriangleOutputSecond.coversZero())
+
+}

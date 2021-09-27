@@ -1,0 +1,14 @@
+ fun cloudiness(cloudPercent: Int): String{
+    return when(cloudPercent){
+        in 81..100 -> "Sunny"
+        in 61..80 -> "Mostly Sunny"
+        in 41..60 -> "Partly Sunny"
+        in 21..40 -> "Mostly Cloudy"
+        in 0..20 -> "Cloudy"
+        else -> throw IllegalArgumentException("Cloud percent should be inbetween 0 to 100 percent.")
+    }
+}
+
+fun main(){
+    println(cloudiness(70))
+}

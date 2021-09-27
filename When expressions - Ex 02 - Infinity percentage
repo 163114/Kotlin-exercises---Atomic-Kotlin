@@ -1,0 +1,23 @@
+fun temperature(tempInCelsius: Int): String {
+    if(tempInCelsius >= -5 && tempInCelsius <= 24){
+        return when(tempInCelsius){
+            in 15..24 -> "Warm"
+            in 5..14 -> "Cool"
+            in -5..4 -> "Cold"
+            else -> throw IllegalArgumentException("tempCelsius must be a valid whole number.")
+            }
+    }
+    if(tempInCelsius < -5)
+        return "Freezing"
+    if(tempInCelsius > 24)
+        return "Hot"
+    else throw IllegalArgumentException("tempCelsius must be a valid whole number.")
+}
+
+fun main(){
+    println(temperature(16))
+    println(temperature(6))
+    println(temperature(-4))
+    println(temperature(-10))
+    println(temperature(999))
+}       

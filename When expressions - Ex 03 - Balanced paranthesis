@@ -1,0 +1,20 @@
+fun balanced(stringToTake: String){
+    val listOfAvailableCharacters = "()"
+    var numForCounting = 0
+    for(character in stringToTake){
+        if(character in listOfAvailableCharacters)
+            numForCounting += 1
+        if(character !in listOfAvailableCharacters)
+            throw IllegalArgumentException()
+    }
+    if(numForCounting % 2 == 0)
+        println("is balanced")
+    if(numForCounting % 2 != 0)
+        println("is unbalanced")
+}
+
+fun main(){
+ balanced("()")
+ balanced("()(()")
+ balanced("()((9087")
+}

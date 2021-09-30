@@ -1,0 +1,20 @@
+data class AirlineTicket(
+    val firstName: String,
+    val lastName: String,
+    val ticket: Int,
+    val origin: String,
+    val destination: String
+)
+
+fun AirlineTicket.transferTicket(
+    otherFirstName: String,
+    otherLastName: String
+): AirlineTicket {
+    return this.copy(firstName = otherFirstName, lastName = otherLastName)
+}
+
+fun main(){
+    val firstTicket = AirlineTicket("Anton", "Kononenko", 1, "Russian", "Tokyo, Japan")
+    println(firstTicket)
+    println(firstTicket.transferTicket("Alyona", "Malochina"))
+}

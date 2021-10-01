@@ -1,0 +1,25 @@
+enum class Seasons{
+    Summer, Spring, Winter, Autumn
+}
+enum class Months{
+    December, January, February,
+    September, October, November,
+    June, July, August,
+    March, April, May
+}
+fun Months.getAustralianSeason(): Seasons = when(this){
+    December, January, February -> Summer
+    September, October, November -> Spring
+    June, July, August -> Winter
+    March, April, May -> Autumn
+}
+fun Months.getDays(leapYear: Boolean = false): Int = when(this){
+    January, March, May, July, August, October, December -> 31
+    April, June, September, November -> 30
+    February && (leapYear == false) -> 28
+    February && (leapYear == true) -> 29
+}
+fun main(){
+    println(January.getAustralianSeason(December) == Summer)
+    println(January.getDays(false) == 31)
+}

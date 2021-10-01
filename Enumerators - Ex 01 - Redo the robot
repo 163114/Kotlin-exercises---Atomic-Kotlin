@@ -1,0 +1,25 @@
+enum class Direction{
+    right, left, up, down
+}
+
+class Robot{
+    var x: Int = 0
+    var y: Int = 0
+
+    fun go(direction: Direction, steps: Int){
+        when(direction){
+            right -> x += steps
+            left -> x -= steps
+            up -> y -= steps
+            down -> y += steps
+        }
+    }
+    fun getLocation():String = "($x, $y)"
+}
+
+fun main(){
+    val callTheRobot = Robot()
+    callTheRobot.go(up, 1)
+
+    println(callTheRobot.getLocation())
+}

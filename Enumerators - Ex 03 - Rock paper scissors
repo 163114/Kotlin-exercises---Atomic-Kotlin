@@ -1,0 +1,25 @@
+enum class RockPaperScissors{
+    Rock, Paper, Scissors
+}
+fun winner(rockPaperScissorsFirst: RockPaperScissors, rockPaperScissorsSecond: RockPaperScissors){
+    if (rockPaperScissorsFirst == RockPaperScissors.Rock && rockPaperScissorsSecond == RockPaperScissors.Scissors)
+        println("First player has won")
+    if (rockPaperScissorsFirst == RockPaperScissors.Rock && rockPaperScissorsSecond == RockPaperScissors.Paper)
+        println("First player has won")
+    if (rockPaperScissorsFirst == RockPaperScissors.Rock && rockPaperScissorsSecond == RockPaperScissors.Rock)
+        println("The match was a draw")
+    if (rockPaperScissorsFirst == RockPaperScissors.Paper && rockPaperScissorsSecond == RockPaperScissors.Paper)
+        println("The match was a draw")
+    if (rockPaperScissorsFirst == RockPaperScissors.Paper && rockPaperScissorsSecond == RockPaperScissors.Scissors)
+        println("Second player has won")
+    if (rockPaperScissorsFirst == RockPaperScissors.Scissors && rockPaperScissorsSecond == RockPaperScissors.Scissors)
+        println("The match was a draw")
+}
+fun main(){
+    winner(RockPaperScissors.Rock, RockPaperScissors.Scissors)
+    winner(RockPaperScissors.Rock, RockPaperScissors.Paper)
+    winner(RockPaperScissors.Rock, RockPaperScissors.Rock)
+    winner(RockPaperScissors.Paper, RockPaperScissors.Paper)
+    winner(RockPaperScissors.Paper, RockPaperScissors.Scissors)
+    winner(RockPaperScissors.Scissors, RockPaperScissors.Scissors)
+}

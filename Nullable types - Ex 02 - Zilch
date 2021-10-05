@@ -1,0 +1,10 @@
+fun zilch(): String?{
+    return null
+}
+fun zilch2(): String?{
+    return zilch()
+}
+fun main() {
+    var calZilch = zilch()
+    var calZilch2 = zilch2()
+}

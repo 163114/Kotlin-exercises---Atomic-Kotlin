@@ -1,0 +1,12 @@
+fun calculate(n1: Int, n2: Int): Triple <Boolean, Int, Int> =
+    if(n1 < 0 || n2 < 0)
+        Triple(false, 0, 0)
+    else
+        Triple(true,n1 + n2, n1 * n2)
+
+fun main(){
+    println(calculate(0, 1))
+    println(calculate(0, -1))
+    println(calculate(11, 1))
+    println(calculate(-11, 1))
+}

@@ -1,0 +1,13 @@
+fun sumFirstAndLast(ints: List<Int>): Int {
+    if(ints.isEmpty()){
+        return 0
+    }
+    if(ints.size > 1)
+        return (ints[0] + ints.last())
+    else return ints[0]
+}
+fun main(){
+    println(sumFirstAndLast(listOf(1, 2, 3, 4, 5)))
+    println(sumFirstAndLast(listOf(1)))
+    println(sumFirstAndLast(listOf()))
+}

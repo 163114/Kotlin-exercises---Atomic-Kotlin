@@ -1,0 +1,9 @@
+fun orEmpty(stringToTake: String): String {
+    if(stringToTake.isNotEmpty()) return stringToTake
+    else return "Second"
+}
+
+fun main(){
+    println(orEmpty("First"))
+    println(orEmpty(""))
+}

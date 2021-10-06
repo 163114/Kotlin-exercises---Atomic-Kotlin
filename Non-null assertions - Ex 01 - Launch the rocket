@@ -1,0 +1,14 @@
+class Rocket(){
+    fun ignition(): String? {
+        return "Liftoff!"
+        // return null - null to test
+    }
+    fun launch(Rocket: String?){
+        if(Rocket == null)
+            throw IllegalArgumentException("Rocket can't be null")
+    }
+}
+fun main(){
+    val launchGo = Rocket()
+    println(launchGo!!.launch(launchGo.ignition()))
+}

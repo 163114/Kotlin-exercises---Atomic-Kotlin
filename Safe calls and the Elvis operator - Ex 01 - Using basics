@@ -1,0 +1,8 @@
+fun downcase(stringToTake: String?): String{
+    return stringToTake?.toLowerCase() ?: ""
+}
+
+fun main(){
+    println(downcase(""))
+    println(downcase("stringToPass"))
+}

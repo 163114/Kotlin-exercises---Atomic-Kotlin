@@ -1,0 +1,15 @@
+import kotlin.math.absoluteValue
+
+fun absValueMaxEqualsMin(int: List<Int>): Boolean? {
+    if (int.isEmpty())
+        return false
+    if (int.minOrNull()?.absoluteValue == int.maxOrNull()?.absoluteValue)
+        return true
+    else return null
+}
+
+fun main(){
+    println(absValueMaxEqualsMin(listOf(1, 2 ,3 ,4 ,5)))
+    println(absValueMaxEqualsMin(listOf(-5, 2 ,3 ,4 ,5)))
+    println(absValueMaxEqualsMin(listOf()))
+}

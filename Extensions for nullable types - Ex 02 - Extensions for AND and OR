@@ -1,0 +1,17 @@
+fun Boolean?.and(secondBooleanAsAParameter: Boolean?): Boolean? {
+    if (this == null) return null
+    if (secondBooleanAsAParameter == null) return null
+    else return (this && secondBooleanAsAParameter)
+}
+fun Boolean?.or(secondBooleanAsAParameter: Boolean?): Boolean? {
+    if (this == null) return null
+    if (secondBooleanAsAParameter == null) return null
+    else return (this || secondBooleanAsAParameter)
+}
+fun main(){
+    val firstBooleanAsAParameter: Boolean = true
+    println(firstBooleanAsAParameter.and(false))
+    println(firstBooleanAsAParameter.and(null))
+    println(firstBooleanAsAParameter.or(true))
+    println(firstBooleanAsAParameter.or(null))
+}

@@ -1,0 +1,17 @@
+fun isLessThanTwo(list: List<Int>): Boolean? {
+    if(list.size > 2)
+        return true
+    else return null
+}
+
+fun <T> List<T>.secondOrNull(): T? {
+    return isLessThanTwo(List<Int>) else List<T>.indexOf(2)
+}
+fun <T> List<T>.penultimateOrNull(): T? {
+    return isLessThanTwo(List<Int>) else List<T>.indexOf(List<Int>.size - 1)
+}
+
+fun main(){
+    val listOne = listOf<Int>(1, 2, 3, 4, 5)
+    listOne.secondOrNull()
+}

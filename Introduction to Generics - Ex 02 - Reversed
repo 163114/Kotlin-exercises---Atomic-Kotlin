@@ -1,0 +1,10 @@
+fun <T> List<T>.reversed(): List<T> {
+    val newList = mutableListOf<T>()
+    for(i in lastIndex downTo 0)
+        newList += get(i)
+    return newList
+}
+fun main(){
+    val listOne = listOf<Int>(1, 2, 3, 4, 5)
+    println(listOne.reversed())
+}

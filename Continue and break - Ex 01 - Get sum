@@ -1,0 +1,20 @@
+fun main(){
+    readNumbers()
+}
+fun readNumbers() {
+    var sum: Int = 0
+    while (true){
+        val userInput = readLine()?.toIntOrNull()
+        if(userInput == null) {
+            println("Not a number: $userInput")
+            continue
+        }
+        if(userInput == 0) {
+            println(sum)
+            break}
+        if (userInput != null) {
+            sum += userInput
+        }
+    println(sum)
+    }
+}

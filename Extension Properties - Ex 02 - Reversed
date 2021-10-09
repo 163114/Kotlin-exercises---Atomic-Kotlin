@@ -1,0 +1,7 @@
+val <T> List<T>.reversed: List<T>
+    get() = reversed()
+
+fun main(){
+    val listToTest = listOf<Int>(1, 2, 3)
+    println(listToTest.reversed)
+}

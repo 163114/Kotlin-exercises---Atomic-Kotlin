@@ -1,0 +1,11 @@
+val List<Any>.secondOrNull: Any?
+    get() = getOrNull(1)
+
+val List<Any>.penultimateOrNull: Any?
+    get() = if(this.isEmpty()) null else this.subList(1, lastIndex)
+
+fun main(){
+    val listToTestWith = listOf<Int>(1, 2, 3, 4, 5)
+    println(listToTestWith.secondOrNull)
+    println(listToTestWith.penultimateOrNull)
+}

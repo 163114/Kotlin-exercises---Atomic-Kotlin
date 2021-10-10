@@ -1,0 +1,6 @@
+fun other(s: String): String {
+    return s.filterIndexed { index, x -> index % 2 == 0 }
+}
+fun main(){
+    println(other("String"))
+}

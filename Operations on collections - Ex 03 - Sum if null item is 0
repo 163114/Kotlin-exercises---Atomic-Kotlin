@@ -1,0 +1,6 @@
+fun sum(list: List<Int?>): Int {
+    return list.sumBy{ it ?: 0 }
+}
+fun main(){
+    println(sum(listOf(1, 2, 3, null, 5)))
+}

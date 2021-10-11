@@ -1,0 +1,24 @@
+val Int.isEven: Boolean
+    get() = this % 2 == 0
+fun Int.IsPrime(): Boolean {
+    var number: Int = 0
+    for(i in 1..this)
+        if(this % i == 0)
+            number++
+    return number == 2
+}
+fun isPerfect(number: Int): Boolean {
+    var sum = 0
+    for(i in 1..(number - 1))
+        if (number % i == 0)
+            sum += i
+    return sum == number
+}
+fun main(){
+    println(2.isEven)
+    println(1.isEven)
+    println(5.IsPrime())
+    println(4.IsPrime())
+    println(isPerfect(6))
+    println(isPerfect(5))
+}

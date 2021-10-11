@@ -1,0 +1,29 @@
+import kotlin.system.exitProcess
+
+val Int.isEven: Boolean
+    get() = this % 2 == 0
+
+private fun getListOfDivisors(number: Int): List<Int>{
+    return (2 until number).filter { number % it == 0 }
+}
+
+fun Int.isPrime(): Boolean {
+    return this != 1 && getListOfDivisors(this).isEmpty()
+}
+
+fun isPerfect(number: Int): Boolean {
+    return number != 1 && 1 + getListOfDivisors(number).sum() == number
+}
+
+fun main(){
+    val range = 1..1000
+    val even = range.filter(Int::isEven)
+    println(even.size)
+
+    val prime = range.filter(Int::isPrime)
+    println(prime.take(7))
+    println(prime.takeLast(7))
+
+    val perfect = range.filter(::isPerfect)
+    println(perfect.take(3))
+}

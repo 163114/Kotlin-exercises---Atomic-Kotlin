@@ -1,0 +1,11 @@
+fun <T, R> List<T>.map(action: (T) -> R): List<R> {
+    val newList = mutableListOf<R>()
+    for(element in this)
+        newList += action(element)
+    return newList
+}
+fun main(){
+    val instanceOfTheExtensionFunction = listOf<Int>(1, 2, 3, 4, 5)
+    val newListToPrint = instanceOfTheExtensionFunction.map{ it.toString().repeat(5) }
+    println(newListToPrint)
+}

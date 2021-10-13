@@ -1,0 +1,13 @@
+fun <T, R : Any> Iterable<T>.mapIndexedNotNull(action: (Int, T) -> R? ): List<R> {
+    val newList = mutableListOf<R>()
+    for((index, item) in this.withIndex()) {
+        val transformed = action(index, item)
+        if (transformed != null)
+            newList += transformed}
+    return newList
+}
+
+fun main(){
+    val callList = listOf<String?>("fuck", "U", null, null, "firstTry")
+    println(callList.mapIndexedNotNull { index, element -> if (index % 2 == 0) "${element?.repeat(2)}!" else null })
+}

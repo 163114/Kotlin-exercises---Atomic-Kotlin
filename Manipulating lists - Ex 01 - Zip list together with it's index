@@ -1,0 +1,13 @@
+fun zipWithIndex(listToTake: List<Any>): List<Pair<Any, Any>> {
+    val finalList = mutableListOf<Any>()
+    var num = 0
+    for(element in listToTake) {
+        finalList += num
+        num ++
+    }
+    return (listToTake zip finalList)
+}
+fun main() {
+    val listToCall = listOf<String>("a", "b", "c")
+    println(zipWithIndex(listToCall))
+}

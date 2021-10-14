@@ -1,0 +1,7 @@
+fun zipWithIndex(listToTake: List<Any>): List<Pair<Any, Any>> {
+    return listToTake.mapIndexed { index, any -> Pair(any, index) }
+}
+fun main() {
+    val listToCall = listOf<String>("a", "b", "c")
+    println(zipWithIndex(listToCall))
+}

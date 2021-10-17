@@ -1,0 +1,19 @@
+data class Instructor(val name: String)
+
+data class Student(val name: String)
+
+data class Lesson(
+    val instructor: Instructor,
+    val students: Set<Student>,
+    val rating: Map<Student, Int>
+)
+
+data class School(
+    val instructors: Set<Instructor>,
+    val students: Set<Student>,
+    val lessons: Sequence<Lesson>
+)
+
+fun School.commonLessons(instructorName: Instructor, studentName: Student): Sequence<Lesson> {
+    return lessons.filter { instructorName == it.instructor && studentName in it.students }
+}

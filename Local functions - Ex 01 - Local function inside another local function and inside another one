@@ -1,0 +1,13 @@
+fun f(): Int {
+    fun g(): Int {
+        fun h(): Int {
+            return 47
+        }
+        return h()
+    }
+    return g()
+}
+
+fun main(){
+    println(f())
+}

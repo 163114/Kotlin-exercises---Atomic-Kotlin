@@ -1,0 +1,17 @@
+import kotlin.reflect.KFunction0
+
+fun createCounter(): Pair<KFunction0<Int>, KFunction0<Int>> {
+    var counter = 0
+    fun inc() = counter ++
+    fun value(): Int {
+        return counter
+    }
+    return Pair(::inc, ::value)
+}
+fun main(){
+    val(inc, counter) = createCounter()
+    repeat(10){
+        inc()
+    }
+    println(counter())
+}

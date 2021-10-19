@@ -1,0 +1,8 @@
+tailrec fun simulation(group: String, level: Int) {
+    println("Simulation: $group Reality: level $level")
+    if(level > 1) simulation (group, level - 1)
+}
+
+fun main(){
+    simulation("Aliens", 10)
+}

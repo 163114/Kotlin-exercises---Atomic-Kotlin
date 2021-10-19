@@ -1,0 +1,12 @@
+fun <T> List<T>.count(predicate: (T) -> Boolean): Int =
+    fold(0) {count, element ->
+        if (predicate(element)) count + 1 else count
+    }
+
+fun main() {
+    val listOne = listOf(1, -2, 3)
+    val listTwo = listOf(1, 2, 3)
+    println(listOne.count{it < 0})
+    println(listTwo.count{it > 0})
+    println(listTwo.count{it < 0})
+}

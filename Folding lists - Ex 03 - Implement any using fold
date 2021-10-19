@@ -1,0 +1,11 @@
+fun <T> List<T>.any(predicate: (T) -> Boolean): Boolean =
+    fold(false) { falseStart , element ->
+        if (predicate(element)) true else falseStart
+    }
+
+fun main(){
+    val listOne = listOf<Int>(1, 2, -3)
+    println(listOne.any { it == 0 })
+    println(listOne.any { it < 0 })
+    println(listOne.any { it > 0 })
+}

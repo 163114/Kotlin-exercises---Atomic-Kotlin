@@ -1,0 +1,11 @@
+fun factorial(numberToCountTo: Long): Long{
+    tailrec fun auxiliary(numberToCountTo: Long, current: Long,): Long =
+        if(numberToCountTo == 1L) current
+        else auxiliary(numberToCountTo - 1, current * numberToCountTo)
+    return auxiliary(numberToCountTo, 1)
+}
+fun main(){
+    println(factorial(3))
+    println(factorial(4))
+    println(factorial(11))
+}

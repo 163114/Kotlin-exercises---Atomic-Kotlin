@@ -1,0 +1,15 @@
+fun fibonacci(numToCountTo: Int): Long {
+    tailrec fun fibonacci(
+        numToCountTo: Int,
+        current: Long,
+        next: Long
+    ): Long {
+        if(numToCountTo == 0) return current
+        else return fibonacci(numToCountTo - 1, next, current + next)
+    }
+    return fibonacci(numToCountTo, 0L, 1L)
+}
+
+fun main(){
+    println(fibonacci(20))
+}

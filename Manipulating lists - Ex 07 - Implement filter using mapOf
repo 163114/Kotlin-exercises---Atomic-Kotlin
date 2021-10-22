@@ -1,0 +1,12 @@
+fun <T, R> List<T>.filterUsingFlatMap(action: (T) -> R): List<Any?> {
+    val listToReturn = mutableListOf<Any?>()
+    for(element in this){
+        if(action(element) == true)
+            listToReturn += element
+    }
+    return listToReturn
+}
+fun main(){
+    val listToCall = listOf(1, 2, 3, -5, 0)
+    println(listToCall.filterUsingFlatMap{it > 0})
+}

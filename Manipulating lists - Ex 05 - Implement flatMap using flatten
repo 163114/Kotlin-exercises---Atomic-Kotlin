@@ -1,0 +1,12 @@
+fun <R> List<Int>.flatMapUsingFlatten(action: (Int) -> R): List<R> {
+    val finalList = mutableListOf<List<R>>()
+    for(element in this){
+        finalList.add(listOf(action(element)))
+    }
+    return finalList.flatten()
+}
+
+fun main(){
+    val flatMapUsingFlattenInvoke = listOf<Int>(44, 66, 444)
+    println(flatMapUsingFlattenInvoke.flatMapUsingFlatten{it * 555})
+}

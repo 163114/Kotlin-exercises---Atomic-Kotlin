@@ -7,7 +7,12 @@ enum class Pets : Pet {
     HAMSTER { override fun speak() = "Squeak!"}
 }
 fun main(){
+    val makeDogSpeak = Pets.DOG.speak()
+    println(makeDogSpeak)
+
     val listOfPets = listOf<Pets>(Pets.DOG, Pets.CAT, Pets.HAMSTER)
+    println(listOfPets)
+
     for(pet in listOfPets)
         println(pet.speak())
 }

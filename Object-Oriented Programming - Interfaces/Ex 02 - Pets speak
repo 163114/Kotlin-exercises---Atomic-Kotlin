@@ -1,0 +1,13 @@
+interface Pet {
+    fun speak(): String
+}
+enum class Pets : Pet {
+    DOG { override fun speak() = "Bark!" },
+    CAT { override fun speak() = "Meow!"},
+    HAMSTER { override fun speak() = "Squeak!"}
+}
+fun main(){
+    val listOfPets = listOf<Pets>(Pets.DOG, Pets.CAT, Pets.HAMSTER)
+    for(pet in listOfPets)
+        println(pet.speak())
+}

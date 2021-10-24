@@ -1,0 +1,13 @@
+interface Pet {
+    val sound: String
+}
+enum class Pets : Pet {
+    DOG { override val sound = "Bark!" },
+    CAT { override val sound = "Meow!"},
+    HAMSTER { override val sound = "Squeak!"}
+}
+fun main(){
+    val listOfPets = listOf<Pets>(Pets.DOG, Pets.CAT, Pets.HAMSTER)
+    for(pet in listOfPets)
+        println(pet.sound)
+}

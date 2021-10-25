@@ -1,0 +1,11 @@
+fun main(){
+    val animal = Animal()
+    println(animal.sound)
+    val cat = Cat()
+    println(cat.sound)
+    val dog = Dog()
+    println(dog.sound)
+}
+open class Animal(val sound: String = "???")
+class Dog() : Animal("meow")
+class Cat() : Animal("woof")

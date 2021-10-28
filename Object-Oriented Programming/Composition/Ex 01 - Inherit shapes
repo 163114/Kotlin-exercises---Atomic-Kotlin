@@ -1,0 +1,14 @@
+fun main(){
+    val callCircle = Circle()
+    callCircle.shapeGo("Circle")
+    val callRectangle = Rectangle()
+    callRectangle.shapeGo("Rectangle")
+
+}
+open class Shape {
+    fun shapeGo (shapeOfShape: String) = println ("It's $shapeOfShape shape")
+}
+class Circle : Shape() {
+}
+class Rectangle : Shape() {
+}

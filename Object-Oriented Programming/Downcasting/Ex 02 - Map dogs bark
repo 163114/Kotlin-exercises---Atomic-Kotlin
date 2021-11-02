@@ -1,0 +1,31 @@
+import atomictest.eq
+
+interface Creature
+
+class Human : Creature {
+    fun greeting() = "I'm Human"
+}
+
+class Dog : Creature {
+    fun bark() = "Yip!"
+}
+
+class Alien : Creature {
+    fun mobility() = "Three legs"
+}
+
+fun what(c: Creature): String =
+    when (c) {
+        is Human -> c.greeting()
+        is Dog -> c.bark()
+        is Alien -> c.mobility()
+        else -> "Something else"
+    }
+
+fun main() {
+    val group: List<Creature> = listOf(
+        Human(), Human(), Dog(), Alien(), Dog()
+    )
+    group.filterIsInstance<Dog>().map(Dog::bark) eq "[Yip!, Yip!]"
+    group.filterIsInstance(Dog::class.java).map(Dog::bark) eq "[Yip!, Yip!]"
+}

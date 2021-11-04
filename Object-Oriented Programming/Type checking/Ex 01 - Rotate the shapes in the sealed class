@@ -1,0 +1,29 @@
+import atomictest.eq
+
+val Any.name
+    get() = this::class.simpleName
+
+sealed class Shape {
+    fun draw() = "${this.name}: Draw"
+    fun rotate() {
+        when(this){
+            is Square -> "${this.name}: Rotate"
+            is Triangle -> "${this.name}: Rotate"
+            is Circle -> ""
+        }
+    }
+}
+
+class Circle : Shape()
+
+class Square : Shape()
+
+class Triangle : Shape()
+
+fun main() {
+    val shapes = listOf(Circle(), Square())
+    shapes.map { it.draw() } eq
+            "[Circle: Draw, Square: Draw]"
+    shapes.map { it.rotate() } eq
+            "[, Square: Rotate]"
+}

@@ -12,7 +12,7 @@ class OutOfWaterException : HamsterCageException("Cage out of water")
 class HamsterCage (val capacity: Int) {
     var hamsters: HashSet<Hamster> = HashSet()
     fun add(h: Hamster) {
-        if (hamsters.size == capacity) {
+        if (hamsters.size >= capacity) {
             throw CageFullException(capacity)
         }
         else hamsters.add(h)

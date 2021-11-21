@@ -1,0 +1,46 @@
+data class Hamster (val name: String) {
+}
+open class HamsterCageException (val msg: String) : Exception() {
+    override fun toString(): String {
+        return "HamsterCageException: $msg"
+    }
+}
+class CageFullException (val limit: Int) : HamsterCageException("Cage full > $limit")
+class NoSuchHamsterException (val id: String) : HamsterCageException("No Hamster $id")
+class OutOfWaterException : HamsterCageException("Cage out of water")
+
+class HamsterCage (val capacity: Int) {
+    var hamsters: HashSet<Hamster> = HashSet()
+    fun add(h: Hamster) {
+        if (hamsters.size == capacity) {
+            throw CageFullException(capacity)
+        }
+        else hamsters.add(h)
+    }
+    fun get(name: String) {
+        if (hamsters.contains(name) == false) {
+            throw NoSuchHamsterException(name)
+        }
+    }
+    fun feed(): String {
+        val randomNum: Int = (0..10).random()
+        if (randomNum > 8) throw OutOfWaterException()
+        else return "Feeding complete"
+    }
+}
+val hamsters = listOf(
+    Hamster("Sally"), Hamster("Ralph"),
+    Hamster("Bob"), Hamster("Sergio"),
+    Hamster("Allison"), Hamster("Jane"))
+fun test (hc: HamsterCage) {
+    for (hamster in hamsters) {
+        HamsterCage(3).add(hamster)
+    }
+    for (hamster in hamsters) {
+        println("$hamster Morty")
+    }
+    repeat(3){ HamsterCage(3).feed()}
+}
+fun main() {
+    test(HamsterCage(3))
+}

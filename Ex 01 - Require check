@@ -1,0 +1,12 @@
+fun f(s: String): String {
+    require(s.isNotEmpty()) {"s must not be empty, is[$s]"}
+    require(s.isNotBlank()) {"s must not be blank, is[$s]"}
+    require(s.split("-").toList().size == 3) {"s must contain 3 parts \" +\n" +
+            "separated by '-', is [$s]"}
+    return s
+}
+fun main() {
+    println(f(""))
+    println(f(" "))
+    println(f("first-second-blank"))
+}

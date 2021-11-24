@@ -1,0 +1,39 @@
+import atomictest.*
+
+class Failure (msg: String) : Exception(msg)
+
+fun fail (msg: String): Nothing {
+    Log.add(msg)
+    println(msg)
+    throw Failure(msg)
+}
+
+fun require(test: Boolean) {
+    if (!test) fail("require() failed")
+}
+
+fun check(test: Boolean) {
+    if (!test) fail("check() failed")
+}
+
+object Log {
+    private val messages = mutableListOf<String>()
+    fun add (msg: String) {
+        messages.add(msg)
+    }
+    fun report(): List<String> {
+        val nonModifiableCopy = messages.toList()
+        return nonModifiableCopy
+    }
+}
+
+fun main() {
+    require(true)
+    check(true)
+    capture {
+        require(false)
+    } eq "Failure: require() failed"
+    capture {
+        check(false)
+    } eq "Failure: check() failed"
+}

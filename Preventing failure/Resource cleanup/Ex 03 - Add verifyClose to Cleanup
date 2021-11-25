@@ -1,0 +1,38 @@
+import atomictest.capture
+import java.lang.Exception
+
+enum class Option {Normal, Return, Throw}
+
+class Cleanup () : AutoCloseable {
+    fun f() = println("f()")
+    fun g() = println("g()")
+    fun h() = println("h()")
+    override fun close() = println("close()")
+}
+
+fun verifyClose (opt: Option) {
+    Cleanup().use { when (opt) {
+        Option.Normal -> {
+            Cleanup().f()
+            Cleanup().g()
+            Cleanup().h()
+        }
+        Option.Return -> {
+            Cleanup().f()
+            return@use
+        }
+        Option.Throw -> {
+            Cleanup().f()
+            throw Exception()
+        }
+        }
+    }
+}
+
+fun main() {
+    verifyClose(Option.Normal)
+    verifyClose(Option.Return)
+    capture {
+        verifyClose(Option.Throw)
+    } eq "Exception"
+}

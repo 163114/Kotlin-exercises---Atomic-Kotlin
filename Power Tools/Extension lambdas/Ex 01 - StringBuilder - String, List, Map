@@ -1,0 +1,23 @@
+fun createString (builder: StringBuilder.() -> Unit): String {
+    val stringBuilder = StringBuilder()
+    stringBuilder.builder()
+    return stringBuilder.toString()
+}
+
+fun <T> createList (builder: ArrayList<T>.() -> Unit): List<T> {
+    val list = ArrayList<T>()
+    list.builder()
+    return list
+}
+
+fun <K, T> createMap (builder: HashMap<K, T>.() -> Unit): Map<K, T> {
+    val map = HashMap<K, T>()
+    map.builder()
+    return map
+}
+
+fun main () {
+    println(createString{(1..10).forEach { append(it) } })
+    println(createList<String>{(1..10).forEach { add(it.toString()) } })
+    println(createMap<Char, Int>{('a'..'z').forEachIndexed() { n, c -> put(c, n) } })
+}

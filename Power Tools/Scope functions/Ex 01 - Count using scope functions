@@ -1,0 +1,36 @@
+import atomictest.*
+
+data class NumPair(var x: Int, var y: Int) {
+    fun add() = x + y
+    fun subtract() = x - y
+    fun multiply() = x * y
+}
+
+fun main() {
+
+    val np1 = NumPair(10, 20).apply {
+        x += 5
+        y += 6
+    }
+    trace(np1)
+    trace eq "NumPair(x=15, y=26)"
+
+    val np2 = NumPair(30, 40).also {
+        it.x += 7
+        it.y += 8
+    }
+    trace(np2)
+    trace eq "NumPair(x=37, y=48)"
+
+    val result1 = np1.run { np1.add() + np1.subtract() + np1.multiply() }
+    trace(result1)
+    trace eq "420"
+
+    val result2 = np2.let { np2.add() + np2.subtract() + np2.multiply() }
+    trace(result2)
+    trace eq "1850"
+
+    val result3 = with(np1) { np1.add() + np1.subtract() + np1.multiply() }
+    trace(result3)
+    trace eq "420"
+}

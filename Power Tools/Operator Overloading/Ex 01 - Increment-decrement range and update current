@@ -1,0 +1,37 @@
+import atomictest.capture
+
+class WrapRange(
+    val range: IntRange,
+    private var current: Int = range.start
+) {
+init {
+    require(current in range) {
+        "'current' out of range $current"
+    }
+}
+    fun increment() {
+        range.first.plus(1)
+        range.last.plus(1)
+    }
+    fun decrement() {
+        range.first.minus(1)
+        range.last.minus(1)
+    }
+}
+fun main() {
+    val range = 0..5
+    var wr = WrapRange(range)
+    fun testUp() =
+        println("${wr}, ${wr.increment()}")
+    fun testDown() =
+        println("${wr}, ${wr.decrement()}")
+    range.forEach { testUp() }
+    println("-----------")
+    range.forEach { testDown() }
+    capture { WrapRange(range, 6) } eq
+            "IllegalArgumentException: " +
+            "'current' out of range: 6"
+    capture { WrapRange(range, -1) } eq
+            "IllegalArgumentException: " +
+            "'current' out of range: -1"
+}

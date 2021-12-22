@@ -1,0 +1,34 @@
+import atomictest.trace
+
+class Outer {
+    init {
+        trace("$this constructor")
+    }
+    val s1: String by lazy {
+        trace("Initializing Outer.s1")
+        "Hi"
+    }
+    val s2: String by lazy {
+        trace("Initializing Outer.s2")
+        "Hello $s1"
+    }
+    inner class Inner() {
+        init {
+            trace("Inner constructor")
+        }
+        val si: String by lazy {
+            trace("Initializing Inner.si")
+            "Howdy ${Outer().s2}"
+        }
+    }
+}
+fun main() {
+    val o = Outer()
+    trace("Outer created")
+    val inner = o.Inner()
+    trace("Inner created")
+    trace("First access: inner.si:")
+    trace(inner.si)
+    trace("Second access: inner.si:")
+    trace(inner.si)
+}

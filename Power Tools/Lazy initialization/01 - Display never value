@@ -1,0 +1,27 @@
+import atomictest.trace
+
+fun compute(i: Int): Int {
+    trace("Compute $i")
+    return i
+}
+
+object Properties {
+    val atDefinition = compute(1)
+    val getter
+        get() = compute(2)
+    val lazyInit by lazy { compute(3) }
+    val never by lazy { compute(4) }
+}
+
+fun main() {
+    listOf(
+        Properties::atDefinition,
+        Properties::getter,
+        Properties::lazyInit,
+        Properties::never
+    ).forEach {
+        println("${it.name}:")
+        println("${it.get()}")
+        println("${it.get()}")
+    }
+}

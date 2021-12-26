@@ -1,8 +1,0 @@
-class Dog(){
-    fun bark(n: Int, say: String = "bark") = println("$say".repeat(n))
-}
-fun main(){
-    val startBarking = Dog()
-    startBarking.bark(2)
-    startBarking.bark(2, "damn son ")
-}

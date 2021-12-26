@@ -1,5 +1,3 @@
-// LateInitialization/LateInitSoln2.kt
-package lateInitializationExercise2
 import atomictest.eq
 
 class A {
